@@ -54,7 +54,8 @@ const GoogleMapsComponent: React.FC<GoogleMapsProps> = ({ buses }) => {
         await loader.load();
 
         const mapOptions: google.maps.MapOptions = {
-          center: { lat: 40.7589, lng: -73.9851 },
+
+          center: { lat: 19.431083, lng: 78.126139 },
           zoom: 13,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           styles: [
@@ -152,7 +153,7 @@ const GoogleMapsComponent: React.FC<GoogleMapsProps> = ({ buses }) => {
             }}
             className="flex items-center space-x-2"
           >
-            <div 
+            <div
               className="w-2 h-2 rounded-full"
               style={{ backgroundColor: getMarkerColor(bus.status) }}
             />
@@ -186,7 +187,7 @@ const GoogleMapsComponent: React.FC<GoogleMapsProps> = ({ buses }) => {
               </Button>
             </div>
           </div>
-          
+
           <div className={`relative ${isFullscreen ? 'h-[70vh]' : 'h-96'}`}>
             <div ref={mapRef} className="w-full h-full rounded-b-lg" />
           </div>

@@ -13,10 +13,11 @@ interface GoogleMapProps {
   zoom?: number;
 }
 
-const GoogleMap: React.FC<GoogleMapProps> = ({ 
-  buses, 
-  center = { lat: 40.7128, lng: -74.0060 }, // Default to NYC
-  zoom = 13 
+const GoogleMap: React.FC<GoogleMapProps> = ({
+  buses,
+  //11°25'51.9"N 78°07'34.1"E
+  center = { lat: 19.431083, lng: 78.126139 },
+  zoom = 13
 }) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<google.maps.Map | null>(null);
@@ -86,8 +87,8 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
         icon: {
           path: google.maps.SymbolPath.CIRCLE,
           scale: 8,
-          fillColor: bus.status === 'active' ? '#22c55e' : 
-                    bus.status === 'delayed' ? '#eab308' : '#ef4444',
+          fillColor: bus.status === 'active' ? '#22c55e' :
+            bus.status === 'delayed' ? '#eab308' : '#ef4444',
           fillOpacity: 1,
           strokeColor: '#ffffff',
           strokeWeight: 2
@@ -130,7 +131,7 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
   return (
     <div className="relative w-full h-96">
       <div ref={mapRef} className="w-full h-full rounded-lg" />
-      
+
       {/* Map Controls */}
       <div className="absolute bottom-4 right-4 bg-card p-3 rounded-lg shadow-md">
         <p className="text-sm font-medium mb-2">Bus Status</p>
