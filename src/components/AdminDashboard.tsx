@@ -33,7 +33,7 @@ const AdminDashboard = () => {
       number: newBus.number,
       route: newBus.route,
       driver: newBus.driver,
-      location: { lat: 40.7589, lng: -73.9851 },
+      location: { lat: 11.431083, lng: 78.126139 },
       status: newBus.status,
       capacity: newBus.capacity,
       occupancy: 0,
@@ -46,7 +46,7 @@ const AdminDashboard = () => {
       description: `${bus.number} has been added to the fleet.`,
       variant: "default",
     });
-    
+
     setNewBus({ number: '', route: '', driver: '', capacity: 45, status: 'inactive' });
     setIsAddDialogOpen(false);
   };
@@ -65,8 +65,8 @@ const AdminDashboard = () => {
   const handleUpdateBus = () => {
     if (!editingBus) return;
 
-    setBuses(buses.map(bus => 
-      bus.id === editingBus.id 
+    setBuses(buses.map(bus =>
+      bus.id === editingBus.id
         ? { ...bus, ...newBus, lastUpdated: new Date() }
         : bus
     ));
@@ -91,8 +91,8 @@ const AdminDashboard = () => {
   };
 
   const handleStatusChange = (busId: string, newStatus: BusType['status']) => {
-    setBuses(buses.map(bus => 
-      bus.id === busId 
+    setBuses(buses.map(bus =>
+      bus.id === busId
         ? { ...bus, status: newStatus, lastUpdated: new Date() }
         : bus
     ));
@@ -147,9 +147,9 @@ const AdminDashboard = () => {
                   </span>
                 )}
               </Button>
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={logout}
                 className="text-secondary-foreground hover:bg-white/20"
               >
@@ -246,7 +246,7 @@ const AdminDashboard = () => {
                         <Input
                           id="busNumber"
                           value={newBus.number}
-                          onChange={(e) => setNewBus({...newBus, number: e.target.value})}
+                          onChange={(e) => setNewBus({ ...newBus, number: e.target.value })}
                           placeholder="BUS-005"
                         />
                       </div>
@@ -255,7 +255,7 @@ const AdminDashboard = () => {
                         <Input
                           id="route"
                           value={newBus.route}
-                          onChange={(e) => setNewBus({...newBus, route: e.target.value})}
+                          onChange={(e) => setNewBus({ ...newBus, route: e.target.value })}
                           placeholder="Campus Loop"
                         />
                       </div>
@@ -264,7 +264,7 @@ const AdminDashboard = () => {
                         <Input
                           id="driver"
                           value={newBus.driver}
-                          onChange={(e) => setNewBus({...newBus, driver: e.target.value})}
+                          onChange={(e) => setNewBus({ ...newBus, driver: e.target.value })}
                           placeholder="Driver Name"
                         />
                       </div>
@@ -274,7 +274,7 @@ const AdminDashboard = () => {
                           id="capacity"
                           type="number"
                           value={newBus.capacity}
-                          onChange={(e) => setNewBus({...newBus, capacity: parseInt(e.target.value)})}
+                          onChange={(e) => setNewBus({ ...newBus, capacity: parseInt(e.target.value) })}
                         />
                       </div>
                       <Button onClick={handleAddBus} className="w-full" variant="gradient">
@@ -298,7 +298,7 @@ const AdminDashboard = () => {
                         <p className="text-sm text-muted-foreground mt-1">{bus.route}</p>
                         <p className="text-sm text-muted-foreground">Driver: {bus.driver}</p>
                         <p className="text-sm text-muted-foreground">
-                          Occupancy: {bus.occupancy}/{bus.capacity} 
+                          Occupancy: {bus.occupancy}/{bus.capacity}
                           ({Math.round((bus.occupancy / bus.capacity) * 100)}%)
                         </p>
                       </div>
@@ -352,17 +352,15 @@ const AdminDashboard = () => {
                   {notifications.map((notification) => (
                     <div
                       key={notification.id}
-                      className={`p-3 rounded-lg border ${
-                        notification.read ? 'bg-muted/30' : 'bg-card'
-                      }`}
+                      className={`p-3 rounded-lg border ${notification.read ? 'bg-muted/30' : 'bg-card'
+                        }`}
                     >
                       <div className="flex items-start space-x-3">
-                        <div className={`w-2 h-2 rounded-full mt-2 ${
-                          notification.type === 'warning' ? 'bg-warning' :
-                          notification.type === 'error' ? 'bg-destructive' :
-                          notification.type === 'success' ? 'bg-success' :
-                          'bg-primary'
-                        }`} />
+                        <div className={`w-2 h-2 rounded-full mt-2 ${notification.type === 'warning' ? 'bg-warning' :
+                            notification.type === 'error' ? 'bg-destructive' :
+                              notification.type === 'success' ? 'bg-success' :
+                                'bg-primary'
+                          }`} />
                         <div className="flex-1">
                           <h4 className="font-medium text-sm">{notification.title}</h4>
                           <p className="text-xs text-muted-foreground mt-1">{notification.message}</p>
@@ -393,7 +391,7 @@ const AdminDashboard = () => {
                 <Input
                   id="editBusNumber"
                   value={newBus.number}
-                  onChange={(e) => setNewBus({...newBus, number: e.target.value})}
+                  onChange={(e) => setNewBus({ ...newBus, number: e.target.value })}
                 />
               </div>
               <div>
@@ -401,7 +399,7 @@ const AdminDashboard = () => {
                 <Input
                   id="editRoute"
                   value={newBus.route}
-                  onChange={(e) => setNewBus({...newBus, route: e.target.value})}
+                  onChange={(e) => setNewBus({ ...newBus, route: e.target.value })}
                 />
               </div>
               <div>
@@ -409,7 +407,7 @@ const AdminDashboard = () => {
                 <Input
                   id="editDriver"
                   value={newBus.driver}
-                  onChange={(e) => setNewBus({...newBus, driver: e.target.value})}
+                  onChange={(e) => setNewBus({ ...newBus, driver: e.target.value })}
                 />
               </div>
               <div>
@@ -418,7 +416,7 @@ const AdminDashboard = () => {
                   id="editCapacity"
                   type="number"
                   value={newBus.capacity}
-                  onChange={(e) => setNewBus({...newBus, capacity: parseInt(e.target.value)})}
+                  onChange={(e) => setNewBus({ ...newBus, capacity: parseInt(e.target.value) })}
                 />
               </div>
               <Button onClick={handleUpdateBus} className="w-full" variant="transport">

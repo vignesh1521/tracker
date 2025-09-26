@@ -55,7 +55,7 @@ const GoogleMapsComponent: React.FC<GoogleMapsProps> = ({ buses }) => {
 
         const mapOptions: google.maps.MapOptions = {
 
-          center: { lat: 19.431083, lng: 78.126139 },
+          center:  { lat: 11.431083, lng: 78.126139 },
           zoom: 13,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           styles: [

@@ -15,8 +15,7 @@ interface GoogleMapProps {
 
 const GoogleMap: React.FC<GoogleMapProps> = ({
   buses,
-  //11°25'51.9"N 78°07'34.1"E
-  center = { lat: 19.431083, lng: 78.126139 },
+  center = { lat: 11.431083, lng: 78.126139},
   zoom = 13
 }) => {
   const mapRef = useRef<HTMLDivElement>(null);
